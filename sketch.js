@@ -100,9 +100,12 @@ on('load', () => {
   
   const c = $('canvas');
   const ctx = c.getContext('2d');
-  const bb = c.getBoundingClientRect();
-  c.width = bb.width;
-  c.height = bb.height;
+  c.style.height = '0px';
+  on('resize', () => {
+    const bb = c.getBoundingClientRect();
+    c.width = bb.width;
+    c.height = bb.height;
+  }); trigger('resize');
   
   let tiles = [];
   let draggedTile = null;
