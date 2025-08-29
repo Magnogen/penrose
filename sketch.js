@@ -139,7 +139,7 @@ on('load', () => {
     dragOffset = vec2(0, 0);
     tiles.push(spawnTile);
     
-    spawnTile.grabLocal = vec2(60, 0);
+    spawnTile.grabLocal = spawnTile.vertices[0].add(spawnTile.vertices[2]).div(2);
     
     c.style.cursor = 'grabbing';
     fsm.setState('dragging');
